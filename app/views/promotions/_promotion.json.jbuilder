@@ -1,0 +1,2 @@
+json.extract! promotion, :id, :identifier, :code_length, :code_prefix, :start_date, :end_date, :partner_name, :redemption_count, :redemption_limit, :type, :active, :exclusivity_window, :offer_identifier, :created_at, :updated_at
+json.url promotion_url(promotion, format: :json)

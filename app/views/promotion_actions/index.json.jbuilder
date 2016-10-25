@@ -1,0 +1,1 @@
+json.array! @promotion_actions, partial: 'promotion_actions/promotion_action', as: :promotion_action

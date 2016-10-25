@@ -1,0 +1,2 @@
+json.extract! promotion_action, :id, :promotion_id, :amount, :billing_description, :discount_type, :identifier, :type, :coupon_duration, :created_at, :updated_at
+json.url promotion_action_url(promotion_action, format: :json)

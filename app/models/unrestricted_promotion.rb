@@ -1,0 +1,1 @@
+class UnrestrictedPromotion < Promotion; end

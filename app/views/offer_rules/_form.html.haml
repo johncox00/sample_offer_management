@@ -1,0 +1,30 @@
+
+= form_for [@offer, @offer_rule.becomes(OfferRule)], html: { class: "form form-horizontal offer_rule", novalidate: true  } do |f|
+  .form-group
+    = f.label :offer_id, class: 'control-label col-lg-2'
+    .col-lg-10
+      = @offer.identifier
+  .form-group
+    = f.label :user_method, class: 'control-label col-lg-2'
+    .col-lg-4
+      = f.select :user_method, OfferRule.user_methods, {include_blank: false}, {class: 'form-control'}
+    = f.error_span(:user_method)
+  .form-group
+    = f.label :operator, class: 'control-label col-lg-2'
+    .col-lg-4
+      = f.select :operator, OfferRule.operators, {include_blank: false}, {class: 'form-control'}
+    = f.error_span(:operator)
+  .form-group
+    = f.label :threshold, class: 'control-label col-lg-2'
+    .col-lg-4
+      = f.text_field :threshold, class: 'form-control', required: true
+    = f.error_span(:threshold)
+  .form-group
+    = f.label :field_type, class: 'control-label col-lg-2'
+    .col-lg-4
+      = f.select :field_type, OfferRule.field_types, {include_blank: false}, {class: 'form-control'}
+    = f.error_span(:field_type)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil,class: 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), offer_path(@offer), :class => 'btn btn-default'

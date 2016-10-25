@@ -1,0 +1,1 @@
+json.array! @offer_rules, partial: 'offer_rules/offer_rule', as: :offer_rule

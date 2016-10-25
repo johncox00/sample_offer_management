@@ -1,0 +1,1 @@
+json.partial! "offer_actions/offer_action", offer_action: @offer_action

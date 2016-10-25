@@ -1,0 +1,65 @@
+- model_class = Offer
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+.row
+  .col-lg-6
+    %p
+      %strong= model_class.human_attribute_name(:identifier) + ':'
+      %span
+        = @offer.identifier
+    %p
+      %strong= model_class.human_attribute_name(:start_date) + ':'
+      %span
+        = @offer.start_date
+    %p
+      %strong= model_class.human_attribute_name(:end_date) + ':'
+      %span
+        = @offer.end_date
+    %p
+      %strong= model_class.human_attribute_name(:offer_type) + ':'
+      %span
+        = @offer.offer_type
+    %p
+      %strong= model_class.human_attribute_name(:active) + ':'
+      %span
+        = @offer.active
+    %p
+      %strong= model_class.human_attribute_name(:priority) + ':'
+      %span
+        = @offer.priority
+    %p
+      %strong= model_class.human_attribute_name(:durration_in_months) + ':'
+      %span
+        = @offer.durration_in_months
+  .col-lg-6
+    %h3 Rules
+    - @offer.offer_rules.each do |rule|
+      .row
+        .col-lg-12
+          = "#{rule.user_method.titleize} #{OfferRule.operators.select{|o| o.last == rule.operator}.first.first} #{rule.threshold}"
+          .pull-right
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_offer_offer_rule_path(@offer.id, rule.id), :class => 'btn btn-xs btn-default'
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), offer_offer_rule_path(@offer.id, rule.id), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+    %br
+    %hr
+    = link_to '+ Add', new_offer_offer_rule_path(@offer.id), :class => 'btn btn-xs btn-default'
+    %br
+    %h3 Actions
+    - @offer.offer_actions.each do |action|
+      .row
+        .col-lg-12
+          %strong
+            = "#{action.action_type.titleize}:"
+          %span
+            = action.action_identifier
+          .pull-right
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_offer_offer_action_path(@offer.id, action.id), :class => 'btn btn-xs btn-default'
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), offer_offer_action_path(@offer.id, action.id), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+    %br
+    %hr
+    = link_to '+ Add', new_offer_offer_action_path(@offer.id), :class => 'btn btn-xs btn-default'
+
+
+= link_to t('.back', :default => t("helpers.links.back")), offers_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_offer_path(@offer), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), offer_path(@offer), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

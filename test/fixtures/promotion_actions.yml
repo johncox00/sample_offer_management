@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  promotion: one
+  amount: 1.5
+  billing_description: MyString
+  discount_type: MyString
+  identifier: MyString
+  type: 
+  coupon_duration: 1
+
+two:
+  promotion: two
+  amount: 1.5
+  billing_description: MyString
+  discount_type: MyString
+  identifier: MyString
+  type: 
+  coupon_duration: 1

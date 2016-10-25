@@ -1,0 +1,1 @@
+class ExclusivePromotion < Promotion; end

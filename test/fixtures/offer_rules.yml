@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  offer: one
+  user_method: MyString
+  operator: MyString
+  threshold: MyString
+  field_type: MyString
+
+two:
+  offer: two
+  user_method: MyString
+  operator: MyString
+  threshold: MyString
+  field_type: MyString

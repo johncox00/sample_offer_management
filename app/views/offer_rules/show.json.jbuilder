@@ -1,0 +1,1 @@
+json.partial! "offer_rules/offer_rule", offer_rule: @offer_rule

@@ -1,0 +1,29 @@
+- model_class = OfferRule
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:offer_id) + ':'
+  %br
+  = @offer_rule.offer_id
+%p
+  %strong= model_class.human_attribute_name(:user_method) + ':'
+  %br
+  = @offer_rule.user_method
+%p
+  %strong= model_class.human_attribute_name(:operator) + ':'
+  %br
+  = @offer_rule.operator
+%p
+  %strong= model_class.human_attribute_name(:threshold) + ':'
+  %br
+  = @offer_rule.threshold
+%p
+  %strong= model_class.human_attribute_name(:field_type) + ':'
+  %br
+  = @offer_rule.field_type
+
+
+= link_to t('.back', :default => t("helpers.links.back")), offer_rules_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_offer_rule_path(@offer_rule), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), offer_rule_path(@offer_rule), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
