@@ -35,7 +35,7 @@ function setType(type){
   }
 }
 
-ready = function(){
+function ready(){
   $('#promotion_action_type').change(function(){
     setType($(this).val());
   })
@@ -43,5 +43,6 @@ ready = function(){
   setType($('#promotion_action_type').val());
 }
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+$( document ).on('turbolinks:load', function() {
+  ready();
+});

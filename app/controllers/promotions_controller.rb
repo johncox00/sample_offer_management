@@ -29,7 +29,7 @@ class PromotionsController < ApplicationController
     @promotion.end_date = convert_date(promotion_params[:end_date])
     respond_to do |format|
       if @promotion.save
-        format.html { redirect_to promotion_promotion_actions_path(@promotion.id), notice: 'Promotion was successfully created.' }
+        format.html { redirect_to new_promotion_promotion_action_path(@promotion.id), notice: 'Promotion was successfully created.' }
         format.json { render :show, status: :created, location: @promotion }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class PromotionsController < ApplicationController
   def update
     respond_to do |format|
       if @promotion.update(promotion_params)
-        format.html { redirect_to promotion_promotion_actions_path(@promotion.id), notice: 'Promotion was successfully updated.' }
+        format.html { redirect_to promotion_path(@promotion.id), notice: 'Promotion was successfully updated.' }
         format.json { render :show, status: :ok, location: @promotion }
       else
         format.html { render :edit }
